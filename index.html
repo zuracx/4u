@@ -361,11 +361,11 @@
             popupOverlay.classList.add('show');
             setTimeout(() => {
                 popupOverlay.classList.remove('show');
+                const phoneNumber = "+6282152005836";
+                const whatsappMessage = "Aku mencintaimu lebih dari kata-kata ❤️";
+                const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+                window.open(whatsappUrl, '_blank');
             }, 4000);
-            const phoneNumber = "+6282152005836";
-            const whatsappMessage = "Aku mencintaimu lebih dari kata-kata ❤️";
-            const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(whatsappMessage)}`;
-            window.open(whatsappUrl, '_blank');
         });
 
         noBtn.addEventListener('mouseover', function() {
