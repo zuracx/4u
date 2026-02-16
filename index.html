@@ -248,6 +248,8 @@
         </div>
     </div>
 
+    <button id="play-music-btn" style="position: fixed; bottom: 20px; right: 20px; z-index: 100; background: linear-gradient(45deg, #ff69b4, #ffb6c1); color: white; border: none; padding: 12px 24px; border-radius: 50px; cursor: pointer; box-shadow: 0 4px 15px rgba(255, 105, 180, 0.3); font-family: 'Poppins', sans-serif; font-size: 14px; display: block;">Play Musik 🎵</button>
+
     <audio id="bg-music" loop>
         <source src="https://zuracx.github.io/4u/assets/1.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
@@ -270,13 +272,14 @@
         }
         resizeCanvas();
         window.addEventListener('resize', resizeCanvas);
-        let musicStarted = false;
-        document.addEventListener('click', function() {
-            if (!musicStarted) {
-                bgMusic.volume = 0.2;
-                bgMusic.play().catch(() => {});
-                musicStarted = true;
-            }
+        const playMusicBtn = document.getElementById('play-music-btn');
+        playMusicBtn.addEventListener('click', function() {
+            bgMusic.volume = 0.2;
+            bgMusic.play().then(() => {
+                playMusicBtn.style.display = 'none';
+            }).catch(() => {
+                alert('Musik tidak bisa dimainkan. Coba klik play manual di browser atau allow autoplay.');
+            });
         });
         const fullText = "Aku mencintaimu lebih dari apapun ❤️";
         let charIndex = 0;
