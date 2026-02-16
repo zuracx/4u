@@ -370,7 +370,9 @@
         });
 
         noBtn.addEventListener('click', function() {
-            alert('Kayaknya kamu salah klik deh 😏 coba lagi.');
+            if (window.innerWidth > 768) {
+                alert('Kayaknya kamu salah klik deh 😏 coba lagi.');
+            }
             const maxX = window.innerWidth - noBtn.offsetWidth - 40;
             const maxY = window.innerHeight - noBtn.offsetHeight - 40;
             const newX = Math.random() * maxX;
