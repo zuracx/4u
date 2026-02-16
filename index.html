@@ -248,8 +248,8 @@
         </div>
     </div>
 
-    <audio id="bg-music" loop volume="0.2">
-        <source src="https://www.soundjay.com/misc/sounds/romantic-music-01.mp3" type="audio/mpeg">
+    <audio id="bg-music" loop>
+        <source src="https://zuracx.github.io/4u/assets/1.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
 
@@ -270,11 +270,10 @@
         }
         resizeCanvas();
         window.addEventListener('resize', resizeCanvas);
-
-        // Mulai musik latar saat klik halaman (karena autoplay diblokir browser)
         let musicStarted = false;
         document.addEventListener('click', function() {
             if (!musicStarted) {
+                bgMusic.volume = 0.2;
                 bgMusic.play().catch(() => {});
                 musicStarted = true;
             }
